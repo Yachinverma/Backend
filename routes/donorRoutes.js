@@ -4,7 +4,7 @@ const router = express.Router();
 const Donor = require('../models/Donor');
 
 // POST route to handle form data
-router.post('/donate', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newDonor = new Donor(req.body);
     await newDonor.save();
