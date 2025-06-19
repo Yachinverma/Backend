@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: " http://172.16.153.233:5174/", // Allow all (for dev) or specify frontend origin
+  origin: "*", // Allow all (for dev) or specify frontend origin
   methods: ["GET", "POST"],
   credentials: true
 })); // for frontend-backend interaction
