@@ -23,9 +23,11 @@ router.post("/", async (req, res) => {
    Age: ${newDonor.age}
    Blood Group: ${newDonor.bloodGroup}
    Phone: ${newDonor.phone}
+   Email: ${newDonor.email}
    City: ${newDonor.city}
    Location: ${newDonor.donationLocation}
    Consent: ${newDonor.consent ? "Yes" : "No"}
+   
    `;
 
     // SMS bheje
