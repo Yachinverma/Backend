@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
     // SMS bheje
     await client.messages.create({
       body: smsText,
-      from: process.env.TWILIO_PHONE, 
+      from: process.env.TWILIO_PHONE,
       to: process.env.MY_PHONE,
     });
 
@@ -40,7 +40,12 @@ router.post("/", async (req, res) => {
       .json({ message: "Donation info saved & SMS sent successfully!" });
   } catch (error) {
     console.error("Error saving data or sending SMS:", error);
-    res.status(500).json({ error: "Failed to save data or send SMS." });
+    res
+      .status(500)
+      .json({
+        error: "Failed to save data or send SMS.",
+        details: error.message,
+      });
   }
 });
 
