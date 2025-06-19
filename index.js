@@ -7,7 +7,11 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // for frontend-backend interaction
+app.use(cors({
+  origin: " http://172.16.153.233:5174/", // Allow all (for dev) or specify frontend origin
+  methods: ["GET", "POST"],
+  credentials: true
+})); // for frontend-backend interaction
 app.use(express.json());// Parse JSON data coming from frontend
 
 app.use("/api/donate", donorRoutes);
